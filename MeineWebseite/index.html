@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seydlitz Süßwarenhandel</title>
+    <style>
+        body {font-family: 'Segoe UI', sans-serif;margin: 0;padding: 0;background-color: #fff8f4;color: #333;}
+        header {background-color: #a52a2a;color: white;padding: 40px 20px;text-align: center;}
+        header img {max-height: 80px;margin-bottom: 10px;}
+        main {padding: 20px;max-width: 1000px;margin: auto;}
+        h1, h2 {color: #a52a2a;}
+        .section {margin-bottom: 40px;}
+        .oeffnungszeiten {background-color: #ffe7d6;padding: 20px;border-radius: 8px;max-width: 400px;}
+        .kontakt, .formular, .forum {max-width: 600px;}
+        form input, form textarea {width: 100%;padding: 10px;margin-top: 5px;margin-bottom: 15px;border: 1px solid #ccc;border-radius: 5px;}
+        form button {background-color: #a52a2a;color: white;border: none;padding: 10px 20px;border-radius: 5px;cursor: pointer;}
+        form button:hover {background-color: #8b1f1f;}
+        iframe {width: 100%;height: 300px;border: none;border-radius: 8px;}
+        footer {text-align: center;padding: 20px;background-color: #eee;color: #666;font-size: 0.9em;}
+        .post {background: #ffe7d6;margin: 10px 0;padding: 10px;border-radius: 5px;}
+        .comment {background:#fff;padding:5px;margin:5px 0;border-radius:3px;}
+        .vote-buttons {margin-top:5px;}
+        .vote-buttons button {margin-right:5px;}
+        .comment-votes {font-size:0.9em; margin-left:10px;}
+    </style>
+</head><script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<body>
+    <header>
+        <img src="https://sdmntprpolandcentral.oaiusercontent.com/files/00000000-a18c-620a-b2e2-7d2ca98e5acd/raw?se=2025-07-24T09%3A23%3A34Z&sp=r&sv=2024-08-04&sr=b&scid=08b3fa31-408d-5c8e-94d0-594ae2255289&skoid=76024c37-11e2-4c92-aa07-7e519fbe2d0f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-07-23T19%3A49%3A04Z&ske=2025-07-24T19%3A49%3A04Z&sks=b&skv=2024-08-04&sig=eqhdcfxDes9e6QEf/gm/hr4fpy5U/zr3ZxQGhMCfXB0%3D" alt="Seydlitz Logo">
+        <h1>Seydlitz Süßwarenhandel</h1>
+        <p>Feinste Süßigkeiten seit 2025</p>
+    </header>
+    <main>
+        <section class="section oeffnungszeiten">
+            <h2>Öffnungszeiten</h2>
+            <p><strong>Montag – Freitag:</strong> 09:00 – 18:00 Uhr</p>
+            <p><strong>Samstag:</strong> 10:00 – 14:00 Uhr</p>
+            <p><strong>Sonntag:</strong> Geschlossen</p>
+        </section>
+        <section class="section kontakt">
+            <h2>Kontakt & Adresse</h2>
+            <p><strong>Adresse:</strong> Pariser Straße 110, 55286 Nieder-Olm</p>
+            <p><strong>Telefon:</strong> 06136 69 / 11146</p>
+            <p><strong>E-Mail:</strong> info@seydlitz-suesswaren.de</p>
+            <h3>Anfahrt:</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5138.908411610209!2d8.20072747640419!3d49.90904937149391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bd91ec2588082f%3A0xa8718bf4c6b96cb5!2sPariser%20Str.%20110%2C%2055268%20Nieder-Olm!5e0!3m2!1sde!2sde!4v1753349576327!5m2!1sde!2sde" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+        <section class="section formular">
+            <h2>Kontaktformular</h2>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">E-Mail:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="nachricht">Nachricht:</label>
+                <textarea id="nachricht" name="nachricht" rows="5" required></textarea>
+                <div class="g-recaptcha" data-sitekey="6Lc9po0rAAAAADqa6t8y603XsPc8geGm8ic_ReAb"></div>
+		
+		<button type="submit">Absenden</button> 
+
+            </form>
+        </section>
+        <!-- Forum Bereich -->
+        <section class="section forum">
+            <h2>Forum</h2>
+            <form id="forumForm">
+                <label for="titel">Titel:</label>
+                <input type="text" id="titel" required>
+                <label for="beitrag">Beitrag:</label>
+                <textarea id="beitrag" rows="4" required></textarea>
+                <button type="submit">Beitrag posten</button>
+            </form>
+            <div id="posts"></div>
+        </section>
+    </main>
+    <footer>&copy; 2025 Seydlitz Süßwarenhandel – Alle Rechte vorbehalten</footer>
+    <script>
+        const spamKeywords = ["viagra","casino","http://","https://","money"];
+        const forumForm = document.getElementById('forumForm');
+        const postsContainer = document.getElementById('posts');
+
+        function isSpam(text){
+            const lower=text.toLowerCase();
+            return spamKeywords.some(k=>lower.includes(k));
+        }
+
+        function loadPosts() {
+            const posts = JSON.parse(localStorage.getItem('forumPosts') || '[]');
+            postsContainer.innerHTML = '';
+            posts.forEach((post, index) => {
+                const commentsHTML = (post.comments||[]).map((c,i)=>`<div class='comment'>${c.text}
+                    <span class="comment-votes">👍 ${c.up||0} 👎 ${c.down||0}</span>
+                    <button onclick="voteComment(${index},${i},'up')">👍</button>
+                    <button onclick="voteComment(${index},${i},'down')">👎</button>
+                    <button onclick="deleteComment(${index},${i})">Löschen</button>
+                </div>`).join('');
+                const div = document.createElement('div');
+                div.className = 'post';
+                div.innerHTML = `<h3>${post.title}</h3><p>${post.content}</p>
+                    <div class="vote-buttons">
+                        <button onclick="vote(${index},'up')">👍 ${post.up || 0}</button>
+                        <button onclick="vote(${index},'down')">👎 ${post.down || 0}</button>
+                        <button onclick="deletePost(${index})">Beitrag löschen</button>
+                    </div>
+                    <div class="comments">${commentsHTML}</div>
+                    <input type="text" id="comment-${index}" placeholder="Kommentar hinzufügen">
+                    <button onclick="addComment(${index})">Kommentieren</button>`;
+                postsContainer.appendChild(div);
+            });
+        }
+
+        forumForm.addEventListener('submit', e => {
+            e.preventDefault();
+            const title = document.getElementById('titel').value;
+            const content = document.getElementById('beitrag').value;
+            if(isSpam(title) || isSpam(content)){
+                alert("Spam erkannt! Beitrag wird nicht gespeichert.");
+                return;
+            }
+            const posts = JSON.parse(localStorage.getItem('forumPosts') || '[]');
+            posts.push({ title, content, up:0, down:0, comments:[] });
+            localStorage.setItem('forumPosts', JSON.stringify(posts));
+            forumForm.reset();
+            loadPosts();
+        });
+
+        function vote(index,type){
+            const posts = JSON.parse(localStorage.getItem('forumPosts') || '[]');
+            if(type==='up') posts[index].up=(posts[index].up||0)+1;
+            else posts[index].down=(posts[index].down||0)+1;
+            localStorage.setItem('forumPosts', JSON.stringify(posts));
+            loadPosts();
+        }
+        function addComment(index){
+            const input=document.getElementById(`comment-${index}`);
+            const text=input.value.trim();
+            if(text){
+                if(isSpam(text)){
+                    alert("Spam erkannt! Kommentar wird nicht gespeichert.");
+                    return;
+                }
+                const posts=JSON.parse(localStorage.getItem('forumPosts')||'[]');
+                posts[index].comments.push({text,up:0,down:0});
+                localStorage.setItem('forumPosts',JSON.stringify(posts));
+                input.value='';
+                loadPosts();
+            }
+        }
+        function voteComment(postIndex, commentIndex, type){
+            const posts=JSON.parse(localStorage.getItem('forumPosts')||'[]');
+            if(type==='up') posts[postIndex].comments[commentIndex].up=(posts[postIndex].comments[commentIndex].up||0)+1;
+            else posts[postIndex].comments[commentIndex].down=(posts[postIndex].comments[commentIndex].down||0)+1;
+            localStorage.setItem('forumPosts',JSON.stringify(posts));
+            loadPosts();
+        }
+        function deleteComment(postIndex, commentIndex){
+            const posts=JSON.parse(localStorage.getItem('forumPosts')||'[]');
+            posts[postIndex].comments.splice(commentIndex,1);
+            localStorage.setItem('forumPosts',JSON.stringify(posts));
+            loadPosts();
+        }
+        function deletePost(index){
+            const posts=JSON.parse(localStorage.getItem('forumPosts')||'[]');
+            posts.splice(index,1);
+            localStorage.setItem('forumPosts',JSON.stringify(posts));
+            loadPosts();
+        }
+        loadPosts();
+    </script>
+</body>
+</html>
+
+
+    </main>
+
+    <footer>
+        &copy; 2025 Seydlitz Süßwarenhandel – Alle Rechte vorbehalten
+    </footer>
+
+</body>
+</html>
+
+
+        <h2>Kontakt</h2>
+        <p>Adresse: Pariser Straße 110, 55286 Nieder-Olm</p>
+        <p>Telefon: 06136 69 / 11146</p>
+        <p>E-Mail: info@seydlitz-suesswaren.de</p>
+    </main>
+
+    <footer>
+        &copy; 2025 Seydlitz Süßwarenhandel – Alle Rechte vorbehalten
+    </footer>
+</body>
+</html>

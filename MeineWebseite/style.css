@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    color: #333;
+    text-align: center;
+    padding: 20px;
+}
+
+img {
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+a {
+    color: blue;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+body {
+    background: linear-gradient(to right, #00c6ff, #0072ff); /* Farbverlauf */
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+h1 {
+    animation: aufleuchten 2s infinite;
+}
+
+@keyframes aufleuchten {
+    0% { color: white; }
+    50% { color: gold; }
+    100% { color: white; }
+}
+img:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+a:hover {
+    color: gold;
+    text-decoration: underline;
+    transition: 0.3s;
+}
